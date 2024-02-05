@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorted Users</title>
+</head>
+<body>
+<h1>Sorted Users</h1>
+<ul>
+    <li th:each="user : ${users}">
+        <p th:text="${user.name} + ', id=' + ${user.id} + ', age=' + ${user.age}+ ', email=' + ${user.email}"></p>
+    </li>
+</ul>
+</body>
+</html>
