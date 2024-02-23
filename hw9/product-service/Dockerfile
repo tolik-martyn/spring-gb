@@ -1,0 +1,5 @@
+FROM postgres:13.2-alpine
+
+ENV POSTGRES_DB productdb
+ENV POSTGRES_USER admin
+ENV POSTGRES_PASSWORD password

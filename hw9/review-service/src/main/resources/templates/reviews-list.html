@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews List</title>
+</head>
+<body>
+<h1>Reviews List</h1>
+<ul>
+    <li th:each="review : ${reviews}">
+        <p th:text="${review.username}"></p>
+        <p th:text="${review.comment}"></p>
+    </li>
+</ul>
+<form action="/reviews/" method="post">
+    <input type="text" name="productId" placeholder="Product ID" />
+    <input type="text" name="username" placeholder="Your username" />
+    <textarea name="comment" placeholder="Your review"></textarea>
+    <button type="submit">Submit Review</button>
+</form>
+</body>
+</html>

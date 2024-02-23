@@ -1,0 +1,24 @@
+server:
+  port : 8083
+spring:
+  application:
+    name: reviewservice
+  cloud:
+    discovery:
+      enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5433/reviewdb
+    username: admin
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+eureka:
+  instance:
+    hostname: localhost
