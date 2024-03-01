@@ -1,0 +1,40 @@
+server:
+  port : 8082
+spring:
+  application:
+    name: cartservice
+  cloud:
+    discovery:
+      enabled: true
+eureka:
+  instance:
+    hostname: localhost
+
+# Actuator
+info:
+  app:
+    name: "This is a cart service"
+    version: "1.0.0"
+    description: "Adding items to the cart, removing items from the cart and placing an order."
+
+management:
+  endpoint:
+    health:
+      group:
+        custom:
+          include: diskSpace,ping
+          show-components: always
+          show-details: always
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, loggers, prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  info:
+    env:
+      enabled: true

@@ -1,0 +1,53 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: reviewservice
+  cloud:
+    discovery:
+      enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5433/reviewdb
+    username: admin
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+eureka:
+  instance:
+    hostname: localhost
+
+# Actuator
+info:
+  app:
+    name: "This is a review service"
+    version: "1.0.0"
+    description: "Adding and viewing product reviews."
+
+management:
+  endpoint:
+    health:
+      group:
+        custom:
+          include: diskSpace,ping
+          show-components: always
+          show-details: always
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, loggers, prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  info:
+    env:
+      enabled: true
