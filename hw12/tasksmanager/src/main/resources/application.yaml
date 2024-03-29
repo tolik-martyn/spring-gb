@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taskdb
+    username: admin
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+#JWT token validity in seconds
+jwt:
+  token:
+    validity: 10000
+  secret: secret
+
+logging:
+  level:
+    com.example.tasksmanager.aspect.UserActionLoggingAspect: INFO
+    com.example.tasksmanager.aspect.ExceptionHandlingAspect: ERROR
